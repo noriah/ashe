@@ -75,6 +75,11 @@ class RequestWorker extends EventEmitter {
     })
   }
 
+  destroy () {
+    this.emit('destroyed', this._region)
+    this.removeAllListeners()
+  }
+
   _onError (err) {
     this.emit('error', err, this._region)
   }

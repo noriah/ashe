@@ -13,10 +13,6 @@ const {
 
 const getStringMaker = R.compose(R.join('&'), R.map(R.join('=')), R.toPairs)
 
-const LOL_REGIONS = R.append('global', R.keys(constants.regions))
-
-const validateRegion = region => R.contains(region, LOL_REGIONS)
-
 class Ashe extends EventEmitter {
   constructor ({
     apiKey: optsApiKey = null,
@@ -65,7 +61,6 @@ class Ashe extends EventEmitter {
 
     this.workers['global'] = worker
 
-    // TODO: local cache time implementation
     if (optsCache !== null) {
       this._cache = {
         get: key => new Promise((resolve, reject) => {
@@ -76,19 +71,33 @@ class Ashe extends EventEmitter {
               this.emit('cacheError', err)
               return reject(err)
             }
-            return resolve(res)
+
+            if (res !== null) {
+              var data = JSON.parse(res)
+              if (data.expires <= Date.now()) {
+                return resolve(null)
+              }
+              return resolve(data.value)
+            }
+
+            return resolve(null)
           })
         }),
 
         set: (key, value, ttl = 120) => new Promise((resolve, reject) => {
-          var cacheValue = JSON.stringify(value)
-          optsCache.set(key, cacheValue, (err, res) => {
+          var data = JSON.stringify({
+            value,
+            expires: Date.now() + ttl * 1000
+          })
+
+          optsCache.set(key, data, (err, res) => {
             if (err) {
               this._stats.cacheErrors++
               this._onError(err)
               this.emit('cacheError', err)
               return reject(err)
             }
+
             optsCache.expire(key, ttl)
             return resolve(res)
           })
@@ -110,15 +119,26 @@ class Ashe extends EventEmitter {
     } else {
       this._cache = {
         get: params => Promise.resolve(null),
-        set: (params, value) => Promise.resolve(null),
+        set: (key, value, ttl) => {
+          console.log(key, JSON.stringify(value))
+          return Promise.resolve(null)
+        },
         destroy: () => Promise.resolve(null)
       }
-      console.log('[Ashe] No caching.... You do live dangerously')
+      console.log('[Ashe] No caching?.... You do live dangerously')
     }
   }
 
-  // TODO: remove events
-  destroy () { return this._cache.destroy() }
+  destroy () {
+    var workersP = R.map(worker => worker.destroy(), R.values(this.workers))
+    return Promise.all(workersP)
+    .then(() => this._cache.destroy())
+    .then(() => {
+      this.emit('destroyed')
+      this.remoteAllListeners()
+      return true
+    })
+  }
 
   getStats () {
     var workers = R.map(worker => worker.getStats(), this.workers)
@@ -133,7 +153,7 @@ class Ashe extends EventEmitter {
     this.emit('error', err)
   }
 
-  _internalRequest (params) {
+  _makeRequest (params) {
     var region = params.region
     var queryParams = params.queryParams || {}
     // var pars = R.clone(params.queryParams) || {}
@@ -167,28 +187,15 @@ class Ashe extends EventEmitter {
     })
   }
 
-  _makeRequest (params) {
-    params.region = params.region.toLowerCase()
-
-    if (!validateRegion(params.region)) {
-      return Promise.reject(new Error(`'${params.region}' is not a valid region`))
-    }
-
-    return this._internalRequest(params)
-  }
-
   _makeCachedRequest (params) {
-    params.region = params.region.toLowerCase()
+    var region = params.region
 
-    if (!validateRegion(params.region)) {
-      return Promise.reject(new Error(`'${params.region}' is not a valid region`))
-    }
     var cacheParams = params.cache
-    var cacheKey = `ashe-${params.region}-${params.rest.fullName}-${cacheParams.key}`
+    var cacheKey = `ashe-${region}-${params.rest.fullName}-${cacheParams.key}`
     this._cache.get(cacheKey)
     .then(cacheRes => {
       if (cacheRes === null) {
-        return this._internalRequest(params)
+        return this._makeRequest(params)
         .then(reqRes => {
           if (reqRes !== null || (reqRes === null && cacheParams.saveIfNull === true)) {
             return this._cache.set(cacheKey, reqRes, cacheParams.ttl || 120)
@@ -203,7 +210,41 @@ class Ashe extends EventEmitter {
   }
 
   _makeMultiRequest (params) {
+    var data = params.data
+    var suffix = params.suffix
+    var cacheParams = params.cache
+    var results = {}
+    var keys = {}
 
+    return Promise.all(R.map(datum => {
+      var cacheKey = cacheParams.keyFn(datum)
+      return this._cache.get(cacheKey)
+      .then(res => ({id: datum, key: cacheKey, value: res}))
+    }, data))
+    .each(res => {
+      results[res.id] = res.value
+      keys[res.id] = res.key
+    })
+    .filter(R.where({value: R.equals(null)}))
+    .then(R.splitEvery(params.maxObjs))
+    .then(R.map(group => {
+      var url = `${params.url}/${R.join(',', R.pluck('id', group))}${suffix}`
+      return this._makeRequest({
+        rest: params.rest,
+        caller: params.caller,
+        region: params.region,
+        url
+      })
+      .then(R.toPairs)
+      .map((item) => {
+        var id = item[0]
+        results[id] = item[1]
+        this._cache.set(keys[id], item[1], cacheParams.ttl)
+        return item
+      }, {concurrency: Infinity})
+    }))
+    .all()
+    .return(results)
   }
 }
 
