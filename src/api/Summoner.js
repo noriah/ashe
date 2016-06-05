@@ -57,10 +57,10 @@ const getSummonerNames = (region, summonerIds) => {
   return getSummonersById(region, summonerIds).map(R.prop('name'))
 }
 
-const getSummonerByDataCacheParams = R.curry((region, type, summonerNameId) => {
+const getSummonerByDataCacheParams = R.curry((region, type) => {
   return {
     ttl: TTL_TIMES[type],
-    key: `${type}-${summonerNameId}`,
+    keyFn: summoner => `${type}-${summoner}`,
     saveIfNull: true
   }
 })
