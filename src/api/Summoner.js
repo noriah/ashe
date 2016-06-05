@@ -20,7 +20,7 @@ const MAX_SUMMONER_BY_ID_REQUEST = 40
 
 const standardizeIt = R.compose(R.replace(/ /g, ''), R.toLower)
 
-const getSummonersByName = (region, summonerNames) => {
+function getSummonersByName (region, summonerNames) {
   var stdSummonerNames = R.map(standardizeIt, summonerNames)
   var stdReqNameMap = R.zipObj(stdSummonerNames, summonerNames)
 
@@ -35,10 +35,19 @@ const getSummonersByName = (region, summonerNames) => {
     cache: getSummonerByDataCacheParams(region, 'summonerName')
   }
 
+  return this._makeMultiRequest(requestParams)
+  .then(res => {
+    var remake = {}
+    for (let [stdName, sName] of R.toPairs(stdReqNameMap)) {
+      remake[sName] = res[stdName]
+    }
+    return remake
+  })
+
   // return
 }
 
-const getSummonersById = (region, summonerIds) => {
+function getSummonersById (region, summonerIds) {
   var requestParams = {
     rest: restPoint,
     caller: 'getSummonersById',
