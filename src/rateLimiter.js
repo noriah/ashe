@@ -1,7 +1,7 @@
 'use strict'
 
 const Promise = require('bluebird')
-const Limit = require('limiter').RateLimiter
+const limit = require('limiter')
 const R = require('ramda')
 
 class RateLimiter {
@@ -12,7 +12,7 @@ class RateLimiter {
     this._limiters = []
 
     for (let i = 0, len = rules.length; i < len; i++) {
-      this._limiters.push(new Limit(
+      this._limiters.push(new limit.RateLimiter(
         rules[i].limit,
         rules[i].interval * 1000
       ))
