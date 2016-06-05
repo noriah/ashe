@@ -248,4 +248,6 @@ class Ashe extends EventEmitter {
   }
 }
 
+Ashe.prototype.getSummonersByName = require('./api/Summoner').methods.getSummonersByName
+
 module.exports = Ashe
