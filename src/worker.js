@@ -1,10 +1,10 @@
 'use strict'
 
+const { EventEmitter } = require('events')
 const Promise = require('bluebird')
-const R = require('ramda')
 const request = require('request')
+const R = require('ramda')
 
-const sentry = require('../../sentry')
 const RateLimiter = require('./rateLimiter')
 
 const MAX_RETRIES = 5
@@ -34,13 +34,15 @@ class ServiceLimitError extends RateLimitError {}
 class UnknownLimitError extends RateLimitError {}
 // class NotFoundError extends RequestError {}
 
-class RequestWorker {
+class RequestWorker extends EventEmitter {
   constructor ({
     region: optsRegion = 'na',
     rateLimits: optsRateLimit = [
       { interval: 10, limit: 10 },
       { interval: 600, limit: 500 }]
   }) {
+    super()
+
     this._limiter = new RateLimiter(optsRateLimit)
     this._workQueue = []
     this._working = false
@@ -73,6 +75,10 @@ class RequestWorker {
     })
   }
 
+  _onError (err) {
+    this.emit('error', err, this._region)
+  }
+
   _startWorkThread () {
     if (this._working) {
       return
@@ -91,24 +97,18 @@ class RequestWorker {
     this._stats.highWaterMark = R.max(this._workQueue.length, this._stats.highWaterMark)
 
     if (this._stats.higWaterMark >= 40) {
-      console.log(`[Jinx] Holy Crap! Over 40 requests for data in the '${this._region}' queue`)
+      this.emit('highRequests', this._region, this._stats.highWaterMark)
+      console.log(`[Ashe] Holy Crap! Over 40 items queued in the '${this._region}' worker`)
     }
 
     return this._limiter.wait()
-    .then(x => this._workQueue.shift())
+    .then(() => this._workQueue.shift())
     .then(req => this._doWork(req).then(req.resolve, req.reject))
     .catch(err => {
       this._stats.errors++
       this._stats.workerErrors++
-      console.error(`[Jinx] Error in '${this._region}' work thread\n${err.message}`)
-      sentry.captureException(err, {
-        extra: {
-          region: this._region,
-          stats: this._stats
-        },
-        tags: { lib: 'jinx' }
-      })
-      return true
+      this._onError(err)
+      console.error(`[Ashe] Error in '${this._region}' work thread\n${err.message}`)
     })
     .then(() => setImmediate(() => this._workThread()))
   }
@@ -121,16 +121,17 @@ class RequestWorker {
     return p.catch(UserLimitError, ServiceLimitError, err => {
       this._stats.errors++
       this._stats.rateErrors++
+      this.emit('rateLimit', this._region)
 
       return Promise.delay(err.watTime * 1000)
-      .then(x => this._doWork(req))
+      .then(() => this._doWork(req))
     })
     .catch(APIUnavailableError, () => {
       this._stats.errors++
       this._stats.apiErrors++
 
       return Promise.delay(TIME_WAIT_RIOT_API_MS)
-      .then(x => this._doWork(req))
+      .then(() => this._doWork(req))
     })
     // .catch(NotFoundError, () => null)
   }

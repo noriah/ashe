@@ -1,3 +1,3 @@
-# ashe
+# Ashe
 
-Um... Gimme some time
+A library for accessing the riot api

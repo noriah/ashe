@@ -2,13 +2,13 @@
 
 const constants = require('./constants')
 
-class Jinx {
+class Ashe {
   constructor () {
     this.a = ''
   }
 }
 
 module.exports = {
-  Jinx,
+  Ashe,
   constants
 }
