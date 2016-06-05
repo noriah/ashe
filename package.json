@@ -1,0 +1,32 @@
+{
+  "name": "ashe",
+  "version": "0.0.1",
+  "description": "A library for accessing the Riot API from Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noriah/ashe.git"
+  },
+  "keywords": [
+    "api",
+    "riot",
+    "league",
+    "lol"
+  ],
+  "author": "noriah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noriah/ashe/issues"
+  },
+  "homepage": "https://github.com/noriah/ashe",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "limiter": "^1.1.0",
+    "ramda": "^0.21.0",
+    "redis": "^2.6.1",
+    "request": "^2.72.0"
+  }
+}
