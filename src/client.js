@@ -2,7 +2,9 @@
 
 const { EventEmitter } = require('events')
 const Promise = require('bluebird')
+const path = require('path')
 const R = require('ramda')
+const fs = require('fs')
 
 const constants = require('./constants')
 const {
@@ -92,9 +94,9 @@ class Ashe extends EventEmitter {
 
           optsCache.set(key, data, (err, res) => {
             if (err) {
-              this._stats.cacheErrors++
-              this._onError(err)
               this.emit('cacheError', err)
+              this._onError(err)
+              this._stats.cacheErrors++
               return reject(err)
             }
 
@@ -119,10 +121,7 @@ class Ashe extends EventEmitter {
     } else {
       this._cache = {
         get: params => Promise.resolve(null),
-        set: (key, value, ttl) => {
-          console.log(key, JSON.stringify(value))
-          return Promise.resolve(null)
-        },
+        set: (key, value, ttl) => Promise.resolve(null),
         destroy: () => Promise.resolve(null)
       }
       console.log('[Ashe] No caching?.... You do live dangerously')
@@ -211,7 +210,7 @@ class Ashe extends EventEmitter {
 
   _makeMultiRequest (params) {
     var data = params.data
-    var suffix = params.suffix
+    var suffix = params.suffix || ''
     var cacheParams = params.cache
     var results = {}
     var keys = {}
@@ -248,6 +247,14 @@ class Ashe extends EventEmitter {
   }
 }
 
-Ashe.prototype.getSummonersByName = require('./api/Summoner').methods.getSummonersByName
+var modules = fs.readdirSync(path.join(__dirname, "api"))
+R.forEach(module => {
+  var moduleFile = module
+  var moduleName = path.basename(moduleFile, path.extname(moduleFile))
+  var api = require(`./api/${moduleName}`)
+  for (let [fnName, func] of R.toPairs(api.methods)) {
+    Ashe.prototype[fnName] = func
+  }
+}, modules)
 
 module.exports = Ashe

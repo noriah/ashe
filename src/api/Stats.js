@@ -16,7 +16,7 @@ const TTL_TIMES = {
 const getStatsType = type => {
   type = type.toLowerCase()
   var capped = type[0].toUpperCase() + type.substr(1)
-  return (region, summonerId) => {
+  return function (region, summonerId) {
     var requestParams = {
       rest: restPoint,
       caller: `getStats${capped}`,
@@ -28,7 +28,8 @@ const getStatsType = type => {
         saveIfNull: true
       }
     }
-    // return
+
+    return this._makeCachedRequest(requestParams)
   }
 }
 
