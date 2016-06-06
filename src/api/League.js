@@ -2,14 +2,14 @@
 
 const { genUrl } = require('../util')
 
-const MAX_SUMMONER_IDS_PER_REQUEST = 10
-const MAX_TEAM_IDS_PER_REQUEST = 10
-
 const restPoint = {
   fullName: 'league-v2.5',
   name: 'league',
   version: '2.5'
 }
+
+const MAX_SUMMONER_IDS_PER_REQUEST = 10
+const MAX_TEAM_IDS_PER_REQUEST = 10
 
 module.exports = {
   restPoint,

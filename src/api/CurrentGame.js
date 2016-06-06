@@ -39,4 +39,5 @@ module.exports = {
 
       return this._makeCachedRequest(requestParams)
     }
+  }
 }

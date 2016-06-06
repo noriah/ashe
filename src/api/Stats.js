@@ -8,35 +8,42 @@ const restPoint = {
   version: '1.3'
 }
 
-const TTL_TIMES = {
-  ranked: 900,
-  summary: 900
-}
-
-const getStatsType = type => {
-  type = type.toLowerCase()
-  var capped = type[0].toUpperCase() + type.substr(1)
-  return function (region, summonerId) {
-    var requestParams = {
-      rest: restPoint,
-      caller: `getStats${capped}`,
-      region: region,
-      url: `${genUrl(region, restPoint)}/by-summoner/${summonerId}/${type}`,
-      cache: {
-        ttl: TTL_TIMES[type],
-        key: `stats-${summonerId}-${type}`,
-        saveIfNull: true
-      }
-    }
-
-    return this._makeCachedRequest(requestParams)
-  }
-}
+const TTL_TIME_RANKED = 900
+const TTL_TIME_SUMMARY = 900
 
 module.exports = {
   restPoint,
   methods: {
-    getStatsRanked: getStatsType('ranked'),
-    getStatsSummary: getStatsType('summary')
+    getStatsRanked: function (region, summonerId) {
+      var requestParams = {
+        rest: restPoint,
+        caller: 'getStatsRanked',
+        region: region,
+        url: `${genUrl(region, restPoint)}/by-summoner/${summonerId}/ranked`,
+        cache: {
+          ttl: TTL_TIME_RANKED,
+          key: `stats-${summonerId}-ranked`,
+          saveIfNull: true
+        }
+      }
+
+      return this._makeCachedRequest(requestParams)
+    },
+
+    getStatsSummary: function (region, summonerId) {
+      var requestParams = {
+        rest: restPoint,
+        caller: 'getStatsSummary',
+        region: region,
+        url: `${genUrl(region, restPoint)}/by-summoner/${summonerId}/summary`,
+        cache: {
+          ttl: TTL_TIME_SUMMARY,
+          key: `stats-${summonerId}-summary`,
+          saveIfNull: true
+        }
+      }
+
+      return this._makeCachedRequest(requestParams)
+    }
   }
 }
