@@ -245,9 +245,13 @@ class Ashe extends EventEmitter {
     .all()
     .return(results)
   }
+
+  _genURL (region, rest) {
+    return `https://${region}.api.pvp.net/api/lol/${region}/v${rest.version}/${rest.name}`
+  }
 }
 
-var modules = fs.readdirSync(path.join(__dirname, "api"))
+var modules = fs.readdirSync(path.join(__dirname, 'api'))
 R.forEach(module => {
   var moduleFile = module
   var moduleName = path.basename(moduleFile, path.extname(moduleFile))

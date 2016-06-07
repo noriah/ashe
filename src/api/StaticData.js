@@ -8,7 +8,7 @@ const restPoint = {
   version: '1.2'
 }
 
-const genUrl = (region) => {
+const genURL = (region) => {
   return `https://global.api.pvp.net/api/lol/${restPoint.name}/${region}/v${restPoint.version}`
 }
 
@@ -28,7 +28,7 @@ function getChampions (region, options) {
     rest: restPoint,
     caller: 'getChampions',
     region: region,
-    url: `${genUrl(region)}/champion`,
+    url: `${genURL(region)}/champion`,
     queryParams: opts,
     cache: {
       ttl: 3600,
