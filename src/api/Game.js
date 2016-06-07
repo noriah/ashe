@@ -1,7 +1,5 @@
 'use strict'
 
-const { genUrl } = require('../util')
-
 const restPoint = {
   fullName: 'game-v1.3',
   name: 'game',
@@ -13,7 +11,7 @@ function getRecentGamesForSummoner (region, summonerId, options) {
     rest: restPoint,
     caller: 'getRecentGamesForSummoner',
     region: region,
-    url: `${genUrl(region, restPoint)}/by-summoner/${summonerId}/recent`,
+    url: `${this._genURL(region, restPoint)}/by-summoner/${summonerId}/recent`,
     cache: {
       ttl: 1800,
       key: `games-${summonerId}`,

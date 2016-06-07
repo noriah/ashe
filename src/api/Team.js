@@ -1,7 +1,5 @@
 'use strict'
 
-const { genUrl } = require('../util')
-
 const restPoint = {
   fullName: 'team-v2.4',
   name: 'team',
@@ -11,44 +9,47 @@ const restPoint = {
 const MAX_SUMMONER_IDS_PER_REQUEST = 10
 const MAX_TEAM_IDS_PER_REQUEST = 10
 
+function getTeamsBySummonerIds (region, summonerIds) {
+  var requestParams = {
+    rest: restPoint,
+    caller: 'getTeamsBySummonerIds',
+    region: region,
+    data: summonerIds,
+    url: `${this._genURL(region, restPoint)}/by-summoner`,
+    maxObjs: MAX_SUMMONER_IDS_PER_REQUEST,
+    cache: {
+      ttl: 1800,
+      keyFn: summonerId => `teams-for-summoner-${summonerId}`,
+      saveIfNull: false
+    }
+  }
+
+  return this._makeMultiRequest(requestParams)
+}
+
+function getTeamsByIds (region, summonerIds) {
+  var requestParams = {
+    rest: restPoint,
+    caller: 'getTeamsByIds',
+    region: region,
+    data: summonerIds,
+    url: this._genURL(region, restPoint),
+    maxObjs: MAX_TEAM_IDS_PER_REQUEST,
+    cache: {
+      ttl: 1800,
+      keyFn: teamId => `team-${teamId}`,
+      saveIfNull: false
+    }
+  }
+
+  return this._makeMultiRequest(requestParams)
+}
+
 module.exports = {
   restPoint,
   methods: {
-    getTeamsBySummonerIds: function (region, summonerIds) {
-      var requestParams = {
-        rest: restPoint,
-        caller: 'getTeamsBySummonerIds',
-        region: region,
-        data: summonerIds,
-        url: `${genUrl(region, restPoint)}/by-summoner`,
-        maxObjs: MAX_SUMMONER_IDS_PER_REQUEST,
-        cache: {
-          ttl: 1800,
-          keyFn: summonerId => `teams-for-summoner-${summonerId}`,
-          saveIfNull: false
-        }
-      }
-
-      return this._makeMultiRequest(requestParams)
-    },
-
-    getTeamsByIds: function (region, summonerIds) {
-      var requestParams = {
-        rest: restPoint,
-        caller: 'getTeamsByIds',
-        region: region,
-        data: summonerIds,
-        url: genUrl(region, restPoint),
-        maxObjs: MAX_TEAM_IDS_PER_REQUEST,
-        cache: {
-          ttl: 1800,
-          keyFn: teamId => `team-${teamId}`,
-          saveIfNull: false
-        }
-      }
-
-      return this._makeMultiRequest(requestParams)
-    }
+    getTeamsBySummonerIds,
+    getTeamsByIds
 
     // getLeaguesByTeamId: function (region, teamIds) {
     //   var requestParams = {

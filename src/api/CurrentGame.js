@@ -6,7 +6,7 @@ const restPoint = {
   version: '1.0'
 }
 
-const genUrl = (region, platform, summonerId) => {
+const genURL = (region, platform, summonerId) => {
   return `https://${region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/${platform}/${summonerId}`
 }
 
@@ -26,7 +26,7 @@ function getCurrentGame (region, summonerId) {
     rest: restPoint,
     caller: 'getCurrentGame',
     region: region,
-    url: genUrl(region, platform, summonerId),
+    url: genURL(region, platform, summonerId),
     cache: {
       ttl: 10,
       key: `currentGame-${summonerId}`,
