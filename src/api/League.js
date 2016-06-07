@@ -14,7 +14,7 @@ const MAX_TEAM_IDS_PER_REQUEST = 10
 module.exports = {
   restPoint,
   methods: {
-    getLeaguesBySummonerId: function (region, summonerIds) {
+    getLeaguesBySummonerId: function getLeaguesBySummonerId (region, summonerIds) {
       var requestParams = {
         rest: restPoint,
         caller: 'getLeaguesBySummonerId',
