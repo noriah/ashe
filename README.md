@@ -26,6 +26,11 @@ Tests will be written soon
 - summoner-v1.4
 - team-v2.4
 
+## Installation
+```bash
+npm install ashe
+```
+
 ## Usage
 
 ### Basic Usage
