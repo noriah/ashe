@@ -1,4 +1,5 @@
-# Ashe
+Ashe
+=
 
 [![Code Climate](https://codeclimate.com/github/noriah/ashe/badges/gpa.svg)](https://codeclimate.com/github/noriah/ashe)
 [![Dependency Status](https://david-dm.org/noriah/ashe.svg)](https://david-dm.org/noriah/ashe)
@@ -6,7 +7,7 @@
 
 A library for accessing the riot api based *loosely* around lol-js
 
-### Features
+## Features
 - Promisified
  - All Ashe functions return promises. Isn't that nice
 - Limit-By-Region - Riot limits api calls by region, so Ashe does too
@@ -22,11 +23,10 @@ A library for accessing the riot api based *loosely* around lol-js
 - Automatic retry
  - Ashe will retry up to five times if an error occurs
 
+## Usage
 
-### Usage
+### Basic Usage
 
-Basic Usage
-=
 ```javascript
 // import Ashe
 const Ashe = require('ashe')
@@ -38,8 +38,8 @@ var client = new Ashe('########-####-####-####-############')
 var champions = client.getChampions('na')
 ```
 
-With a Redis Cache
-=
+### With a Redis Cache
+
 
 ```javascript
 // import Ashe and redis
