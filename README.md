@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/amreuland/ashe/badges/gpa.svg)](https://codeclimate.com/github/amreuland/ashe)
 [![Dependency Status](https://david-dm.org/amreuland/ashe.svg)](https://david-dm.org/amreuland/ashe)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![npm-version](https://img.shields.io/npm/v/ashe.svg)](https://www.npmjs.com/package/ashe)
 
 A library for accessing the riot api based *loosely* around lol-js
 
@@ -68,4 +69,49 @@ var champions = client.getChampions('na')
 ```
 
 ## Full Documentation
-I'm working on it
+
+### getChampions
+
+### getCurrentGame
+
+### getFeaturedGames
+
+### getLeagueEntriesBySummonerId
+
+### getLeagueEntriesByTeamId
+
+### getLeaguesBySummonerId
+
+### getLeaguesByTeamId
+
+### getMatch
+
+### getMatchList
+
+### getRecentGamesForSummoner
+
+### getRegionShardStatus
+
+### getStats
+
+### getStatsRanked
+
+### getStatsSummary
+
+### getStatusShardList
+
+### getSummonersById
+
+### getSummonersByName
+
+### getSummonersMasteries
+
+### getSummonersNames
+
+### getSummonersRunes
+
+### getTeamsByIds
+
+### getTeamsBySummonerIds
+
+
