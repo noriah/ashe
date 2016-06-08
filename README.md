@@ -1,5 +1,4 @@
-Ashe
-=
+# Ashe
 
 [![Code Climate](https://codeclimate.com/github/noriah/ashe/badges/gpa.svg)](https://codeclimate.com/github/noriah/ashe)
 [![Dependency Status](https://david-dm.org/noriah/ashe.svg)](https://david-dm.org/noriah/ashe)
@@ -7,21 +6,25 @@ Ashe
 
 A library for accessing the riot api based *loosely* around lol-js
 
+Tests will be written soon
+
 ## Features
-- Promisified
- - All Ashe functions return promises. Isn't that nice
+- All Ashe functions return promises. Isn't that nice
 - Limit-By-Region - Riot limits api calls by region, so Ashe does too
  - If one region gets limited, the others keep going
- - Ashe knows how to handle 429 codes and headers
 - Caching - Ashe is ready to cache your data, making multiple calls lightning fast
- - Cache-then-Network flow - Check cache first, then make a call
- - Designed with Redis
- - Any cache that has `get` and `set` functions will do
-- Seperate region workers
- - All calls to the api are separated by region, and each region has its own 'thread'
- - Multiple calls to the same method, with different regions are asynchronous
-- Automatic retry
- - Ashe will retry up to five times if an error occurs
+- All calls to the api are separated by region, and each region has its own 'thread'
+- Ashe will retry up to five times if an error occurs
+
+### Current API Versions
+- current-game-v1.0
+- featured-games-v1.0
+- lol-status-v1.0
+- league-v2.5
+- match-v2.2
+- stats-v1.3
+- summoner-v1.4
+- team-v2.4
 
 ## Usage
 
