@@ -59,5 +59,5 @@ var lolClient = new Ashe({
 var champions = client.getChampions('na')
 ```
 
-### Full Documentation
+## Full Documentation
 I'm working on it
