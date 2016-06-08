@@ -70,48 +70,51 @@ var champions = client.getChampions('na')
 
 ## Full Documentation
 
-#### getChampions
+#### getChampions(region)
+```javascript
+client.getChampions('na').then()
+```
 
-#### getCurrentGame
+#### getCurrentGame(region, summonerId)
+```javascript
+client.getCurrentGame('na', 1234567).then()
+```
 
-#### getFeaturedGames
+#### getFeaturedGames(region)
+```javascript
+client.getFeaturedGames('na').then()
+```
 
-#### getLeagueEntriesBySummonerId
+#### getLeaguesBySummonerId(region, summonerIds)
 
-#### getLeagueEntriesByTeamId
+#### getLeagueEntriesBySummonerId(region, summonerIds)
 
-#### getLeaguesBySummonerId
+#### getLeaguesByTeamId(region, teamIds)
 
-#### getLeaguesByTeamId
+#### getLeagueEntriesByTeamId(region, teamIds)
 
-#### getMatch
+#### getRecentGamesForSummoner(region, summonerId)
 
-#### getMatchList
+#### getStatusShardList()
 
-#### getRecentGamesForSummoner
+#### getRegionShardStatus(region)
 
-#### getRegionShardStatus
+#### getStatsRanked(region, summonerId)
 
-#### getStats
+#### getStatsSummary(region, summonerId)
 
-#### getStatsRanked
+#### getSummonersByName(region, summonerNames)
 
-#### getStatsSummary
+#### getSummonersById(region, summonerIds)
 
-#### getStatusShardList
+#### getSummonersMasteries(region, summonerIds)
 
-#### getSummonersById
+#### getSummonersNames(region, summonerIds)
 
-#### getSummonersByName
+#### getSummonersRunes(region, summonerIds)
 
-#### getSummonersMasteries
+#### getTeamsBySummonerIds(region, summonerIds)
 
-#### getSummonersNames
+#### getTeamsByIds(region, teamIds)
 
-#### getSummonersRunes
-
-#### getTeamsByIds
-
-#### getTeamsBySummonerIds
-
-
+#### getMatch(region, matchId, options)
