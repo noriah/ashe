@@ -6,15 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=6.2.0"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amreuland/ashe.git"
+    "url": "https://github.com/request/request.git"
   },
   "keywords": [
+    "ashe",
     "api",
     "riot",
     "league",
-    "lol"
+    "lol",
+    "league of legends"
   ],
   "author": "Austin Reuland",
   "license": "MIT",
