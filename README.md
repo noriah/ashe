@@ -70,48 +70,48 @@ var champions = client.getChampions('na')
 
 ## Full Documentation
 
-### getChampions
+#### getChampions
 
-### getCurrentGame
+#### getCurrentGame
 
-### getFeaturedGames
+#### getFeaturedGames
 
-### getLeagueEntriesBySummonerId
+#### getLeagueEntriesBySummonerId
 
-### getLeagueEntriesByTeamId
+#### getLeagueEntriesByTeamId
 
-### getLeaguesBySummonerId
+#### getLeaguesBySummonerId
 
-### getLeaguesByTeamId
+#### getLeaguesByTeamId
 
-### getMatch
+#### getMatch
 
-### getMatchList
+#### getMatchList
 
-### getRecentGamesForSummoner
+#### getRecentGamesForSummoner
 
-### getRegionShardStatus
+#### getRegionShardStatus
 
-### getStats
+#### getStats
 
-### getStatsRanked
+#### getStatsRanked
 
-### getStatsSummary
+#### getStatsSummary
 
-### getStatusShardList
+#### getStatusShardList
 
-### getSummonersById
+#### getSummonersById
 
-### getSummonersByName
+#### getSummonersByName
 
-### getSummonersMasteries
+#### getSummonersMasteries
 
-### getSummonersNames
+#### getSummonersNames
 
-### getSummonersRunes
+#### getSummonersRunes
 
-### getTeamsByIds
+#### getTeamsByIds
 
-### getTeamsBySummonerIds
+#### getTeamsBySummonerIds
 
 
