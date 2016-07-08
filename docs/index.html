@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Austin Reuland <amreuland@gmail.com>">
+  
+  <title>Docs - Ashe</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Docs";
+    var mkdocs_page_input_path = "docs.md";
+    var mkdocs_page_url = "/docs/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80482110-1', 'amreuland.github.io');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> Ashe</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../index.html">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../usage/index.html">Usage</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="index.html">Docs</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ashe">Ashe</a></li>
+                
+                    <li><a class="toctree-l4" href="#new_asheoptions">new Ashe(options)</a></li>
+                
+                    <li><a class="toctree-l4" href="#getcurrentgame">getCurrentGame</a></li>
+                
+                    <li><a class="toctree-l4" href="#getfeaturedgames">getFeaturedGames</a></li>
+                
+                    <li><a class="toctree-l4" href="#getrecentgamesforsummoner">getRecentGamesForSummoner</a></li>
+                
+                    <li><a class="toctree-l4" href="#getleaguesbysummonerid">getLeaguesBySummonerId</a></li>
+                
+                    <li><a class="toctree-l4" href="#getleagueentriesbysummonerid">getLeagueEntriesBySummonerId</a></li>
+                
+                    <li><a class="toctree-l4" href="#getleaguesbyteamid">getLeaguesByTeamId</a></li>
+                
+                    <li><a class="toctree-l4" href="#getleagueentriesbyteamid">getLeagueEntriesByTeamId</a></li>
+                
+                    <li><a class="toctree-l4" href="#getmatch">getMatch</a></li>
+                
+                    <li><a class="toctree-l4" href="#getmatchlist">getMatchList</a></li>
+                
+                    <li><a class="toctree-l4" href="#getchampions">getChampions</a></li>
+                
+                    <li><a class="toctree-l4" href="#getstatsranked">getStatsRanked</a></li>
+                
+                    <li><a class="toctree-l4" href="#getstatssummary">getStatsSummary</a></li>
+                
+                    <li><a class="toctree-l4" href="#getstatusshardlist">getStatusShardList</a></li>
+                
+                    <li><a class="toctree-l4" href="#getregionshardstatus">getRegionShardStatus</a></li>
+                
+                    <li><a class="toctree-l4" href="#getsummonersbyname">getSummonersByName</a></li>
+                
+                    <li><a class="toctree-l4" href="#getsummonersbyid">getSummonersById</a></li>
+                
+                    <li><a class="toctree-l4" href="#getsummonersmasteries">getSummonersMasteries</a></li>
+                
+                    <li><a class="toctree-l4" href="#getsummonersnames">getSummonersNames</a></li>
+                
+                    <li><a class="toctree-l4" href="#getsummonersrunes">getSummonersRunes</a></li>
+                
+                    <li><a class="toctree-l4" href="#getteamsbysummonerids">getTeamsBySummonerIds</a></li>
+                
+                    <li><a class="toctree-l4" href="#getteamsbyids">getTeamsByIds</a></li>
+                
+                    <li><a class="toctree-l4" href="#destroyed">"destroyed"</a></li>
+                
+                    <li><a class="toctree-l4" href="#error">"error"</a></li>
+                
+                    <li><a class="toctree-l4" href="#workererror">"workerError"</a></li>
+                
+                    <li><a class="toctree-l4" href="#cacheerror">"cacheError"</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Ashe</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Docs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/amreuland/ashe/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="ashe"><a class="toclink" href="#ashe">Ashe</a><a class="headerlink" href="#ashe" title="Permanent link">&para;</a></h2>
+<p>A library for accessing the Riot API from Node</p>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#ashe">Ashe</a><ul>
+<li><a href="#new_asheoptions">new Ashe(options)</a></li>
+<li><a href="#getcurrentgame">#getCurrentGame(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getfeaturedgames">#getFeaturedGames(region)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getrecentgamesforsummoner">#getRecentGamesForSummoner(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getleaguesbysummonerid">#getLeaguesBySummonerId(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getleagueentriesbysummonerid">#getLeagueEntriesBySummonerId(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getleaguesbyteamid">#getLeaguesByTeamId(region, teamIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getleagueentriesbyteamid">#getLeagueEntriesByTeamId(region, teamIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getmatch">#getMatch(region, matchId, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getmatchlist">#getMatchList(region, summonerId, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getchampions">#getChampions(region, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getstatsranked">#getStatsRanked(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getstatssummary">#getStatsSummary(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getstatusshardlist">#getStatusShardList()</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getregionshardstatus">#getRegionShardStatus(region)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getsummonersbyname">#getSummonersByName(region, summonerNames)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getsummonersbyid">#getSummonersById(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getsummonersmasteries">#getSummonersMasteries(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getsummonersnames">#getSummonersNames(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getsummonersrunes">#getSummonersRunes(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getteamsbysummonerids">#getTeamsBySummonerIds(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getteamsbyids">#getTeamsByIds(region, summonerIds)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#destroyed">&ldquo;destroyed&rdquo;</a></li>
+<li><a href="#error">&ldquo;error&rdquo;</a></li>
+<li><a href="#workererror">&ldquo;workerError&rdquo;</a></li>
+<li><a href="#cacheerror">&ldquo;cacheError&rdquo;</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="new_asheoptions"><a class="toclink" href="#new_asheoptions">new Ashe(options)</a><a class="headerlink" href="#new_asheoptions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code> &#124; <code>String</code></td>
+<td>Either your riot api key or an object                                with options for Ashe</td>
+</tr>
+<tr>
+<td>options.apiKey</td>
+<td><code>string</code></td>
+<td>Riot API Key</td>
+</tr>
+<tr>
+<td>options.cache</td>
+<td><code>Object</code></td>
+<td>An object with cachable functions or                               a Redis cache of some sorts</td>
+</tr>
+<tr>
+<td>[options.rateLimits]</td>
+<td><code>Array.&lt;Object&gt;</code></td>
+<td>Rules for limits set on the                                           requests made to riot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getcurrentgame"><a class="toclink" href="#getcurrentgame">getCurrentGame</a><a class="headerlink" href="#getcurrentgame" title="Permanent link">&para;</a></h3>
+<p><code>getCurrentGame(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Gets the current game info for the requested summoner and region</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whoes resolved value contains the
+                               data of the current game for the summoner
+                               requestin the region or <code>null</code> if not in a
+                               game or not found<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/976/3336">https://developer.riotgames.com/api/methods#!/976/3336</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region for the player see (REGION STUFF)</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>string</code></td>
+<td>ID of the summoner to get info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getfeaturedgames"><a class="toclink" href="#getfeaturedgames">getFeaturedGames</a><a class="headerlink" href="#getfeaturedgames" title="Permanent link">&para;</a></h3>
+<p><code>getFeaturedGames(region) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get a list of reatured games for a region</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whoes resolved value contains the
+                           list of featured games for a region<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/977/3337">https://developer.riotgames.com/api/methods#!/977/3337</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td><code>na</code></td>
+<td>The region to get featured games for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getrecentgamesforsummoner"><a class="toclink" href="#getrecentgamesforsummoner">getRecentGamesForSummoner</a><a class="headerlink" href="#getrecentgamesforsummoner" title="Permanent link">&para;</a></h3>
+<p><code>getRecentGamesForSummoner(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Returns the recent games for a summoner id in the given region</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A promise whoes resolved value
+        contains the recent games for the summoner or <code>null</code> if none
+        are found<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1078/3718">https://developer.riotgames.com/api/methods#!/1078/3718</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>the region to search in for the summoner</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>String</code></td>
+<td>id of the summoner to look up</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getleaguesbysummonerid"><a class="toclink" href="#getleaguesbysummonerid">getLeaguesBySummonerId</a><a class="headerlink" href="#getleaguesbysummonerid" title="Permanent link">&para;</a></h3>
+<p><code>getLeaguesBySummonerId(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Returns all leagues for specified summoners and summoners&rsquo; teams. Entries for
+each requested participant (i.e., each summoner and related teams) will be
+included in the returned leagues data, whether or not the participant is
+inactive. However, no entries for other inactive summoners or teams in the
+leagues will be included.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot Api: <a href="https://developer.riotgames.com/api/methods#!/985/3351">https://developer.riotgames.com/api/methods#!/985/3351</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids to get data for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getleagueentriesbysummonerid"><a class="toclink" href="#getleagueentriesbysummonerid">getLeagueEntriesBySummonerId</a><a class="headerlink" href="#getleagueentriesbysummonerid" title="Permanent link">&para;</a></h3>
+<p><code>getLeagueEntriesBySummonerId(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Returns all league entries for specified summoners and summoners&rsquo; teams.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/985/3356">https://developer.riotgames.com/api/methods#!/985/3356</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;string&gt;</code></td>
+<td>A list of summoner ids to get data for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getleaguesbyteamid"><a class="toclink" href="#getleaguesbyteamid">getLeaguesByTeamId</a><a class="headerlink" href="#getleaguesbyteamid" title="Permanent link">&para;</a></h3>
+<p><code>getLeaguesByTeamId(region, teamIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Returns all leagues for specified teams. Entries for eachrequested team
+will be included in the returned leagues data, whether or not the team
+is inactive. However, no entries for other inactive teams in the leagues
+will be included.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/985/3352">https://developer.riotgames.com/api/methods#!/985/3352</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>teamIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of team ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getleagueentriesbyteamid"><a class="toclink" href="#getleagueentriesbyteamid">getLeagueEntriesByTeamId</a><a class="headerlink" href="#getleagueentriesbyteamid" title="Permanent link">&para;</a></h3>
+<p><code>getLeagueEntriesByTeamId(region, teamIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Returns all league entries for specified teams.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/985/3355">https://developer.riotgames.com/api/methods#!/985/3355</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>teamIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of team ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getmatch"><a class="toclink" href="#getmatch">getMatch</a><a class="headerlink" href="#getmatch" title="Permanent link">&para;</a></h3>
+<p><code>getMatch(region, matchId, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Retrieve match by ID</p>
+<p>Not all matches have timeline data. If timeline data is requested,
+but doesn&rsquo;t exist, then the response won&rsquo;t include it.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1064/3671">https://developer.riotgames.com/api/methods#!/1064/3671</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>region to search in</td>
+</tr>
+<tr>
+<td>matchId</td>
+<td><code>String</code></td>
+<td>the match id</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>options (includeTimeline ({boolean}))</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getmatchlist"><a class="toclink" href="#getmatchlist">getMatchList</a><a class="headerlink" href="#getmatchlist" title="Permanent link">&para;</a></h3>
+<p><code>getMatchList(region, summonerId, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Gets the list of matches for a summoner in a region</p>
+<p>NOT COMPLETE YET</p>
+<p>A number of optional parameters are provided for filtering. It is up to
+the caller to ensure that the combination of filter parameters provided
+is valid for the requested summoner, otherwise, no matches may be
+returned. If either of the beginTime or endTime parameters is set, they
+must both be set, although there is no maximum limit on their range. If
+the beginTime parameter is specified on its own, endTime is assumed to
+be the current time. If the endTime parameter is specified on its own,
+beginTime is assumed to be the start of the summoner&rsquo;s match history.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1069/3683">https://developer.riotgames.com/api/methods#!/1069/3683</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>the region to search in</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>String</code></td>
+<td>the summoner id to request data for</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>Not yet completed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampions"><a class="toclink" href="#getchampions">getChampions</a><a class="headerlink" href="#getchampions" title="Permanent link">&para;</a></h3>
+<p><code>getChampions(region, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get the champion data for a region</p>
+<p>Not all data specified is returned by default. See the champData parameter for more information.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1055/3633">https://developer.riotgames.com/api/methods#!/1055/3633</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td><code>na</code></td>
+<td>The region to get data for</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+<td>An object of options</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getstatsranked"><a class="toclink" href="#getstatsranked">getStatsRanked</a><a class="headerlink" href="#getstatsranked" title="Permanent link">&para;</a></h3>
+<p><code>getStatsRanked(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get the status of a summoner in the ranked scene for a region</p>
+<p>Includes ranked stats for Twisted Treeline and Summoner&rsquo;s Rift.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1080/3725">https://developer.riotgames.com/api/methods#!/1080/3725</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>the region to search in</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>String</code></td>
+<td>the summoner to get data for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getstatssummary"><a class="toclink" href="#getstatssummary">getStatsSummary</a><a class="headerlink" href="#getstatssummary" title="Permanent link">&para;</a></h3>
+<p><code>getStatsSummary(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get the status of a summoner for a region</p>
+<p>NOT COMPLETED: One summary is returned per queue type.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1080/3726">https://developer.riotgames.com/api/methods#!/1080/3726</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>the region to search in</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>String</code></td>
+<td>the summoner to get data for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getstatusshardlist"><a class="toclink" href="#getstatusshardlist">getStatusShardList</a><a class="headerlink" href="#getstatusshardlist" title="Permanent link">&para;</a></h3>
+<p><code>getStatusShardList() ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get the list of status shards for the RIOT api</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1085/3740">https://developer.riotgames.com/api/methods#!/1085/3740</a>  </p>
+<h3 id="getregionshardstatus"><a class="toclink" href="#getregionshardstatus">getRegionShardStatus</a><a class="headerlink" href="#getregionshardstatus" title="Permanent link">&para;</a></h3>
+<p><code>getRegionShardStatus(region) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get shard status.</p>
+<p>Returns the data available on the status.leagueoflegends.com website for the given region.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1085/3739">https://developer.riotgames.com/api/methods#!/1085/3739</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td><code>na</code></td>
+<td>The region to check status on</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsummonersbyname"><a class="toclink" href="#getsummonersbyname">getSummonersByName</a><a class="headerlink" href="#getsummonersbyname" title="Permanent link">&para;</a></h3>
+<p><code>getSummonersByName(region, summonerNames) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get summoner objects mapped by standardized summoner name for a given list of summoner names</p>
+<p><em>NOTE</em>: The function already handles standardizing the names. Returned data
+will have the same key as the name provided</p>
+<p>The response object contains the summoner objects mapped by the standardized
+summoner name, which is the summoner name in all lower case and with spaces
+removed. Use this version of the name when checking if the returned object
+contains the data for a given summoner. This API will also accept standardized
+summoner names as valid parameters, although they are not required.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1079/3722">https://developer.riotgames.com/api/methods#!/1079/3722</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerNames</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner names</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsummonersbyid"><a class="toclink" href="#getsummonersbyid">getSummonersById</a><a class="headerlink" href="#getsummonersbyid" title="Permanent link">&para;</a></h3>
+<p><code>getSummonersById(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get summoner objects mapped by summoner ID for a given list of summoner IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1079/3724">https://developer.riotgames.com/api/methods#!/1079/3724</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsummonersmasteries"><a class="toclink" href="#getsummonersmasteries">getSummonersMasteries</a><a class="headerlink" href="#getsummonersmasteries" title="Permanent link">&para;</a></h3>
+<p><code>getSummonersMasteries(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get mastery pages mapped by summoner ID for a given list of summoner IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1079/3723">https://developer.riotgames.com/api/methods#!/1079/3723</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsummonersnames"><a class="toclink" href="#getsummonersnames">getSummonersNames</a><a class="headerlink" href="#getsummonersnames" title="Permanent link">&para;</a></h3>
+<p><code>getSummonersNames(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get summoner names mapped by summoner ID for a given list of summoner IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1079/3720">https://developer.riotgames.com/api/methods#!/1079/3720</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getsummonersrunes"><a class="toclink" href="#getsummonersrunes">getSummonersRunes</a><a class="headerlink" href="#getsummonersrunes" title="Permanent link">&para;</a></h3>
+<p><code>getSummonersRunes(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get rune pages mapped by summoner ID for a given list of summoner IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1079/3719">https://developer.riotgames.com/api/methods#!/1079/3719</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getteamsbysummonerids"><a class="toclink" href="#getteamsbysummonerids">getTeamsBySummonerIds</a><a class="headerlink" href="#getteamsbysummonerids" title="Permanent link">&para;</a></h3>
+<p><code>getTeamsBySummonerIds(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get teams mapped by summoner ID for a given list of summoner IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/986/3358">https://developer.riotgames.com/api/methods#!/986/3358</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of summoner ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getteamsbyids"><a class="toclink" href="#getteamsbyids">getTeamsByIds</a><a class="headerlink" href="#getteamsbyids" title="Permanent link">&para;</a></h3>
+<p><code>getTeamsByIds(region, summonerIds) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get teams mapped by team ID for a given list of team IDs</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/986/3357">https://developer.riotgames.com/api/methods#!/986/3357</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>summonerIds</td>
+<td><code>Array.&lt;String&gt;</code></td>
+<td>A list of team ids</td>
+</tr>
+</tbody>
+</table>
+<h3 id="destroyed"><a class="toclink" href="#destroyed">&ldquo;destroyed&rdquo;</a><a class="headerlink" href="#destroyed" title="Permanent link">&para;</a></h3>
+<p>Destroyed event</p>
+<p><strong>Kind</strong>: event emitted by <code><a href="#ashe">Ashe</a></code>  </p>
+<h3 id="error"><a class="toclink" href="#error">&ldquo;error&rdquo;</a><a class="headerlink" href="#error" title="Permanent link">&para;</a></h3>
+<p>Error event</p>
+<p><strong>Kind</strong>: event emitted by <code><a href="#ashe">Ashe</a></code><br />
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>err</td>
+<td><code>Error</code></td>
+<td>Error emitted when an error occurs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="workererror"><a class="toclink" href="#workererror">&ldquo;workerError&rdquo;</a><a class="headerlink" href="#workererror" title="Permanent link">&para;</a></h3>
+<p>Worker error event</p>
+<p><strong>Kind</strong>: event emitted by <code><a href="#ashe">Ashe</a></code><br />
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td><code>Error</code></td>
+<td>The error that occurred</td>
+</tr>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region that had the error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cacheerror"><a class="toclink" href="#cacheerror">&ldquo;cacheError&rdquo;</a><a class="headerlink" href="#cacheerror" title="Permanent link">&para;</a></h3>
+<p>Cache error event</p>
+<p><strong>Kind</strong>: event emitted by <code><a href="#ashe">Ashe</a></code><br />
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>err</td>
+<td><code>Error</code></td>
+<td>Error emitted when a cacheError occurs</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../usage/index.html" class="btn btn-neutral" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2016 Austin Reuland</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/amreuland/ashe/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../usage/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

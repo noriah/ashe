@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ashe: A library for accessing the riot api based loosely around lol-js">
+  <meta name="author" content="Austin Reuland <amreuland@gmail.com>">
+  
+  <title>Ashe</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/index.html";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-80482110-1', 'amreuland.github.io');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Ashe</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="index.html">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#ashe">Ashe</a></li>
+                
+                    <li><a class="toctree-l4" href="#features">Features</a></li>
+                
+                    <li><a class="toctree-l4" href="#installation">Installation</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="usage/index.html">Usage</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="docs/index.html">Docs</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Ashe</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/amreuland/ashe/" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ashe"><a class="toclink" href="#ashe">Ashe</a><a class="headerlink" href="#ashe" title="Permanent link">&para;</a></h1>
+<p><a href="https://codeclimate.com/github/amreuland/ashe"><img alt="Code Climate" src="https://codeclimate.com/github/amreuland/ashe/badges/gpa.svg" /></a>
+<a href="https://david-dm.org/amreuland/ashe"><img alt="Dependency Status" src="https://david-dm.org/amreuland/ashe.svg" /></a>
+<a href="http://standardjs.com/"><img alt="js-standard-style" src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" /></a>
+<a href="https://www.npmjs.com/package/ashe"><img alt="npm-version" src="https://img.shields.io/npm/v/ashe.svg" /></a></p>
+<p>A library for accessing the riot api based loosely around lol-js</p>
+<p>Tests will be written soon</p>
+<p>Documentation: <a href="http://amreuland.github.io/ashe/docs/index.html">http://amreuland.github.io/ashe/docs/index.html</a></p>
+<h2 id="features"><a class="toclink" href="#features">Features</a><a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>All Ashe functions return promises. Isn&rsquo;t that nice</li>
+<li>Limit-By-Region - Riot limits api calls by region, so Ashe does too</li>
+<li>Caching - Ashe is ready to cache your data, making multiple calls lightning fast</li>
+<li>All calls to the api are separated by region, and each region has its own &lsquo;thread&rsquo;</li>
+<li>Ashe will retry up to five times if an error occurs</li>
+</ul>
+<h2 id="installation"><a class="toclink" href="#installation">Installation</a><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<pre><code class="bash">npm install ashe
+</code></pre>
+
+<h3 id="current_api_versions"><a class="toclink" href="#current_api_versions">Current API Versions</a><a class="headerlink" href="#current_api_versions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>current-game-v1.0</li>
+<li>featured-games-v1.0</li>
+<li>lol-status-v1.0</li>
+<li>league-v2.5</li>
+<li>match-v2.2</li>
+<li>stats-v1.3</li>
+<li>summoner-v1.4</li>
+<li>team-v2.4</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage/index.html" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2016 Austin Reuland</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/amreuland/ashe/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="usage/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2016-07-08 22:12:44.495518
+-->
