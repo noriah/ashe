@@ -1,0 +1,30 @@
+site_name: Ashe
+site_url: http://amreuland.github.io/ashe/
+site_description: 'Ashe: A library for accessing the riot api based loosely around lol-js'
+site_author: 'Austin Reuland <amreuland@gmail.com>'
+site_dir: out/docs
+
+copyright: © 2016 Austin Reuland
+include_next_prev: False
+
+use_directory_urls: False
+docs_dir: docs/src
+
+repo_url: https://github.com/amreuland/ashe/
+
+google_analytics: ['UA-80482110-1', 'amreuland.github.io']
+
+theme: readthedocs
+
+markdown_extensions:
+  - sane_lists
+  - smarty
+  - toc:
+      anchorlink: True
+      permalink: True
+      separator: "_"
+
+pages:
+  - Home: index.md
+  - Usage: usage.md
+  - Docs: docs.md
