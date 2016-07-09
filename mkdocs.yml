@@ -20,7 +20,7 @@ markdown_extensions:
   - sane_lists
   - smarty
   - toc:
-      anchorlink: True
+      anchorlink: False
       permalink: True
       separator: "_"
 
