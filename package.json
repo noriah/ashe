@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "npm run docs-markdown && npm run fixdocs && npm run build-docs",
+    "docs-publish": "npm run docs && mkdocs gh-deploy",
     "docs-markdown": "jsdoc2md --src lib/* lib/api/* jsdoc.json > docs/src/docs.md",
     "fixdocs": "node docs/genSed.js && sed -i -f docs/docFix.sed docs/src/docs.md",
     "build-docs": "mkdocs build"
