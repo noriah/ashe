@@ -21,11 +21,18 @@ fs.readFile(ashemd, 'utf8', (err, data) => {
 
   out = R.concat([
     '{',
-    's/\\* \\[\\./\\* \\[#/g;',
+    's/\\* \\[\\.\\(\\w*\\)(/\\* \\[#\\1(/g;',
     's/<a name=".*"><\\/a>//g;',
     's/new_Ashe_new/new_asheoptions/g',
     's/ashe\\.\\([^(]*\\)\\((.*) ⇒ \\)<code>/\\1\\n<code>\\1\\2/g;'
   ], out)
+
+// insts = R.match(/#Ashe\+(.+?\))/g, data)
+//   var out2 = R.map(value => {
+//     var repl = R.toLower(R.replace('+', '', R.match(/\+(.+?\))/g, value)[0]))
+//     repl = R.replace('event_', '', repl)
+//     return `s/${value}/#${repl}/g;`
+//   }, insts)
 
   out = R.concat(out, [
     's/#Ashe/#ashe/g;',
