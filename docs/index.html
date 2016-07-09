@@ -108,6 +108,12 @@
                 
                     <li><a class="toctree-l4" href="#getchampions">getChampions</a></li>
                 
+                    <li><a class="toctree-l4" href="#getchampionbyid">getChampionById</a></li>
+                
+                    <li><a class="toctree-l4" href="#getchampionbykey">getChampionByKey</a></li>
+                
+                    <li><a class="toctree-l4" href="#getchampionbyname">getChampionByName</a></li>
+                
                     <li><a class="toctree-l4" href="#getstatsranked">getStatsRanked</a></li>
                 
                     <li><a class="toctree-l4" href="#getstatssummary">getStatsSummary</a></li>
@@ -196,6 +202,9 @@
 <li><a href="#getmatch">#getMatch(region, matchId, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getmatchlist">#getMatchList(region, summonerId, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getchampions">#getChampions(region, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getchampionbyid">#getChampionById(region, id, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getchampionbykey">#getChampionByKey(region, id, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getchampionbyname">#getChampionByName(region, id, options)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getstatsranked">#getStatsRanked(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getstatssummary">#getStatsSummary(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getstatusshardlist">#getStatusShardList()</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
@@ -568,6 +577,105 @@ Get the champion data for a region</p>
 <td><code>Object</code></td>
 <td></td>
 <td>An object of options</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampionbyid">getChampionById<a class="headerlink" href="#getchampionbyid" title="Permanent link">&para;</a></h3>
+<p><code>getChampionById(region, id, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get champion by id</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>id</td>
+<td><code>String</code></td>
+<td>The champion Id</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>a set of options</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampionbykey">getChampionByKey<a class="headerlink" href="#getchampionbykey" title="Permanent link">&para;</a></h3>
+<p><code>getChampionByKey(region, id, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get champion by key</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>id</td>
+<td><code>String</code></td>
+<td>The champion Id</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>a set of options</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampionbyname">getChampionByName<a class="headerlink" href="#getchampionbyname" title="Permanent link">&para;</a></h3>
+<p><code>getChampionByName(region, id, options) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get champion by name</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>String</code></td>
+<td>The region to search in</td>
+</tr>
+<tr>
+<td>id</td>
+<td><code>String</code></td>
+<td>The champion Id</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>a set of options</td>
 </tr>
 </tbody>
 </table>
