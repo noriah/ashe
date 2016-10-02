@@ -1,13 +1,14 @@
 {
   "name": "ashe",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "A library for accessing the Riot API from Node.js",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "npm run docs-markdown && npm run fixdocs && npm run build-docs",
+    "docs": "npm run docs-markdown && npm run fixdocs && npm run docs-copy-index && npm run build-docs",
+    "docs-copy-index": "cp README.md docs/src/index.md",
     "docs-publish": "npm run docs && mkdocs gh-deploy",
-    "docs-markdown": "jsdoc2md --src lib/* lib/api/* jsdoc.json > docs/src/docs.md",
+    "docs-markdown": "node ./node_modules/jsdoc-to-markdown/bin/cli.js --src lib/* lib/api/* jsdoc.json > docs/src/docs.md",
     "fixdocs": "node docs/genSed.js && sed -i -f docs/docFix.sed docs/src/docs.md",
     "build-docs": "mkdocs build"
   },
@@ -42,6 +43,7 @@
     "concat-stream": "^1.5.1",
     "documentation-theme-utils": "^3.0.0",
     "highlight.js": "^9.4.0",
+    "jsdoc-to-markdown": "^1.3.7",
     "lodash": "^4.13.1",
     "remark": "^4.2.2",
     "remark-html": "^3.0.0",

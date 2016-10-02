@@ -1,7 +1,7 @@
 # Ashe
 
 [![Code Climate](https://codeclimate.com/github/amreuland/ashe/badges/gpa.svg)](https://codeclimate.com/github/amreuland/ashe)
-[![Dependency Status](https://david-dm.org/amreuland/ashe.svg)](https://david-dm.org/amreuland/ashe)
+[![Dependency Status](https://gemnasium.com/badges/github.com/amreuland/ashe.svg)](https://gemnasium.com/github.com/amreuland/ashe)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm-version](https://img.shields.io/npm/v/ashe.svg)](https://www.npmjs.com/package/ashe)
 
