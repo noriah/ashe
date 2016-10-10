@@ -43,3 +43,6 @@ docs/docFix.sed
 
 
 out/docs
+
+*.sublime-project
+*.sublime-workspace
