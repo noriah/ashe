@@ -24,6 +24,7 @@ npm install ashe
 ```
 
 ### Current API Versions
+- championmastery-v???
 - current-game-v1.0
 - featured-games-v1.0
 - lol-status-v1.0
