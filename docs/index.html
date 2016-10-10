@@ -88,6 +88,14 @@
                 
                     <li><a class="toctree-l4" href="#new_asheoptions">new Ashe(options)</a></li>
                 
+                    <li><a class="toctree-l4" href="#getchampionmastery">getChampionMastery</a></li>
+                
+                    <li><a class="toctree-l4" href="#getchampionmasterybysummoner">getChampionMasteryBySummoner</a></li>
+                
+                    <li><a class="toctree-l4" href="#getmasteryscore">getMasteryScore</a></li>
+                
+                    <li><a class="toctree-l4" href="#gettopchampions">getTopChampions</a></li>
+                
                     <li><a class="toctree-l4" href="#getcurrentgame">getCurrentGame</a></li>
                 
                     <li><a class="toctree-l4" href="#getfeaturedgames">getFeaturedGames</a></li>
@@ -152,7 +160,7 @@
                 
                     <li><a class="toctree-l4" href="#ashegametypes_object">Ashe.GAMETYPES : Object</a></li>
                 
-                    <li><a class="toctree-l4" href="#ashegametypes_object_1">Ashe.GAMETYPES : Object</a></li>
+                    <li><a class="toctree-l4" href="#ashesubtypes_object">Ashe.SUBTYPES : Object</a></li>
                 
                     <li><a class="toctree-l4" href="#asheregions_object">Ashe.REGIONS : Object</a></li>
                 
@@ -207,6 +215,10 @@
 <li><a href="#ashe">Ashe</a><ul>
 <li><a href="#new_asheoptions">new Ashe(options)</a></li>
 <li><em>instance</em><ul>
+<li><a href="#getchampionmastery">#getChampionMastery(region, summonerId, championId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getchampionmasterybysummoner">#getChampionMasteryBySummoner(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#getmasteryscore">#getMasteryScore(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
+<li><a href="#gettopchampions">#getTopChampions(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getcurrentgame">#getCurrentGame(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getfeaturedgames">#getFeaturedGames(region)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
 <li><a href="#getrecentgamesforsummoner">#getRecentGamesForSummoner(region, summonerId)</a> ⇒ <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code></li>
@@ -242,7 +254,7 @@
 <li><a href="#ashe.MAPS">.MAPS</a> : <code>Object</code></li>
 <li><a href="#ashe.GAMEMODES">.GAMEMODES</a> : <code>Object</code></li>
 <li><a href="#ashe.GAMETYPES">.GAMETYPES</a> : <code>Object</code></li>
-<li><a href="#ashe.GAMETYPES">.GAMETYPES</a> : <code>Object</code></li>
+<li><a href="#ashe.SUBTYPES">.SUBTYPES</a> : <code>Object</code></li>
 <li><a href="#ashe.REGIONS">.REGIONS</a> : <code>Object</code></li>
 <li><a href="#ashe.QUEUETYPES">.QUEUETYPES</a> : <code>Object</code></li>
 </ul>
@@ -279,6 +291,133 @@
 <td>[options.rateLimits]</td>
 <td><code>Array.&lt;Object&gt;</code></td>
 <td>Rules for limits set on the                                           requests made to riot</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampionmastery">getChampionMastery<a class="headerlink" href="#getchampionmastery" title="Permanent link">&para;</a></h3>
+<p><code>getChampionMastery(region, summonerId, championId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get a champion mastery by player id and champion id.
+Returns null if no masteries are found for given player id or player id
+and champion id combination</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whose resolved value contains the data of the
+                             champion mastery stat for the summoner request in the region<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1091/3769">https://developer.riotgames.com/api/methods#!/1091/3769</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region for the player</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>string</code></td>
+<td>ID of the summoner to get info</td>
+</tr>
+<tr>
+<td>championId</td>
+<td><code>string</code></td>
+<td>ID of the champion to get info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getchampionmasterybysummoner">getChampionMasteryBySummoner<a class="headerlink" href="#getchampionmasterybysummoner" title="Permanent link">&para;</a></h3>
+<p><code>getChampionMasteryBySummoner(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get all champion mastery entries sorted by number of champion points descending</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whose resolved value contains the data of the
+                             champion mastery stats for the summoner request in the region<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1091/3768">https://developer.riotgames.com/api/methods#!/1091/3768</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region for the player</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>string</code></td>
+<td>ID of the summoner to get info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getmasteryscore">getMasteryScore<a class="headerlink" href="#getmasteryscore" title="Permanent link">&para;</a></h3>
+<p><code>getMasteryScore(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get a player&rsquo;s total champion mastery score, which is sum of individual champion mastery levels</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whose resolved value contains the data of the
+                             champion mastery stats for the summoner request in the region<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1091/3770">https://developer.riotgames.com/api/methods#!/1091/3770</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region for the player</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>string</code></td>
+<td>ID of the summoner to get info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gettopchampions">getTopChampions<a class="headerlink" href="#gettopchampions" title="Permanent link">&para;</a></h3>
+<p><code>getTopChampions(region, summonerId) ⇒ <a href="https://github.com/petkaantonov/bluebird">Promise</a></code>
+Get specified number of top champion mastery entries sorted by number of champion points descending</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#ashe">Ashe</a></code><br />
+<strong>Returns</strong>: <code><a href="https://github.com/petkaantonov/bluebird">Promise</a></code> - A Promise whose resolved value contains the data of the
+                             champion mastery stats for the summoner request in the region<br />
+<strong>Fulfil</strong>: <code>Object</code><br />
+<strong>Reject</strong>: <code>Error</code><br />
+<strong>See</strong>: Riot API: <a href="https://developer.riotgames.com/api/methods#!/1091/3764">https://developer.riotgames.com/api/methods#!/1091/3764</a>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td><code>string</code></td>
+<td>The region for the player</td>
+</tr>
+<tr>
+<td>summonerId</td>
+<td><code>string</code></td>
+<td>ID of the summoner to get info</td>
 </tr>
 </tbody>
 </table>
@@ -1095,7 +1234,7 @@ Get teams mapped by team ID for a given list of team IDs</p>
 <p>[GAMETYPES description]</p>
 <p><strong>Kind</strong>: static property of <code><a href="#ashe">Ashe</a></code><br />
 <strong>See</strong>: Riot API Constants: <a href="https://developer.riotgames.com/docs/game-constants">https://developer.riotgames.com/docs/game-constants</a>  </p>
-<h3 id="ashegametypes_object_1">Ashe.GAMETYPES : <code>Object</code><a class="headerlink" href="#ashegametypes_object_1" title="Permanent link">&para;</a></h3>
+<h3 id="ashesubtypes_object">Ashe.SUBTYPES : <code>Object</code><a class="headerlink" href="#ashesubtypes_object" title="Permanent link">&para;</a></h3>
 <p>[SUBTYPES description]</p>
 <p><strong>Kind</strong>: static property of <code><a href="#ashe">Ashe</a></code><br />
 <strong>See</strong>: Riot API Constants: <a href="https://developer.riotgames.com/docs/game-constants">https://developer.riotgames.com/docs/game-constants</a>  </p>
